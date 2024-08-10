@@ -2,16 +2,14 @@ import React from "react";
 import Entery from "./Entery";
 import emojipedia from "../emojipedia";
 
+// const newemoji= emojipedia.map(function(emojiEntery){
+//   return emojiEntery.meaning.substring(0,100)
+// })
+// console.log(newemoji)
 
-function createEntery(emojiTerm){
-  return <Entery 
-  key = {emojiTerm.id}
-  name = {emojiTerm.name} 
-  emoji = {emojiTerm.emoji}
-  meaning = {emojiTerm.meaning}
-
-/>
-}
+var numbers = [5, 9, 25, 47, 30];
+const newnumbers = numbers.map((x) => x * 2);
+console.log(newnumbers);
 
 function App() {
   return (
@@ -21,7 +19,14 @@ function App() {
       </h1>
 
       <dl className="dictionary">
-        {emojipedia.map(createEntery)}
+        {emojipedia.map(emojiTerm => 
+          <Entery
+            key={emojiTerm.id}
+            name={emojiTerm.name}
+            emoji={emojiTerm.emoji}
+            meaning={emojiTerm.meaning}
+          />
+        )}
       </dl>
     </div>
   );
